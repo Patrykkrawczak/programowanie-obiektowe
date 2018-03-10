@@ -9,11 +9,13 @@ int main() {
     string napis2;
     getline(cin,napis2);
     fstream plik;
-    char *a;
     cin >> napis;
     plik.open(napis.c_str(),ios::in);
-    char *napis3;
-
-    plik.getline(napis3,20);
+    for(int i=0;napis2[i]!='\0';i++) {
+        plik<<napis2[i];
+        if(i%20==0){
+            plik<<endl;
+        }
+    }
     return 0;
 }

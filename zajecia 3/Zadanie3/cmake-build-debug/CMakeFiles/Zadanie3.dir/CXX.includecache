@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+E:/PPPP/programowanie-obiektowe/zajecia 3/Zadanie3/main.cpp
+iostream
+-
+string
+-
+fstream
+-
+
