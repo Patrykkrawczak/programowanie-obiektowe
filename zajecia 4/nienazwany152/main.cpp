@@ -17,10 +17,7 @@ public:
     {
         if(wiek==wiek_max){
         cout<<*imie<<" umarł w wieku: "<< wiek<< " lat."<<endl;
-        delete &wiek;
-        delete &wiek_max;
-        delete &plec;
-        delete imie;
+        delete this->imie;
         }
 
     }
@@ -110,7 +107,7 @@ public:
     {
         for(int i=0;i<max;i++)
         {
-            dom[i][0].dodaj_wiek();
+            *dom[i].dodaj_wiek();
 
         }
 
@@ -123,10 +120,10 @@ public:
 
 
     }
+
     string getimie(){
         return *dom[obc][0].getimie();
     }
-
 
 
 

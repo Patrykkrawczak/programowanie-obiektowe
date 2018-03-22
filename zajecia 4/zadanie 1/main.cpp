@@ -103,28 +103,54 @@ public:
     Household(int max):max(max)
     {
         dom = new villager * [max];
+        for(int i;i< this->max;i++)
+        {
+            dom[i]=new villager;
+        }
         obc=0;
 
     }
     void dodaj_wiek()
     {
-        for(int i=0;i<max;i++)
+        int w=0,w2=0;
+        for(int i=0;i<obc;i++)
         {
-            dom[i][0].dodaj_wiek();
+            dom[i]->dodaj_wiek();
 
         }
+        for(int i=0;i<obc;i++)
+        {
+            if(dom[i]->getwiek()>=18 && dom[i]->getwiek()<=40)
+            {
+                if(dom[i]->getplec()){
+                w=1;
+                }else w2=1;
+            }
+
+        }
+        if(w==1 && w2==1)
+        {
+            villager *nowy = new villager;
+            this->dodaj_chlopka(nowy);
+        }
+
 
 
     }
     void dodaj_chlopka(villager *chlopek)
     {
+
+        if(obc<max){
         dom[obc]=chlopek;
         obc++;
+        }
+
 
 
     }
     string getimie(){
-        return *dom[obc][0].getimie();
+        return *dom[obc-1]->getimie();
+
     }
 
 
@@ -140,10 +166,33 @@ public:
 int main(int argc, char *argv[])
 {
 
-    villager *nowy= new villager();
+    villager **nowy;
     Household *dom= new Household(5);
-    dom->dodaj_chlopka(nowy);
+    for(int i=0;i<5;i++)
+    {
+        nowy[i]=new villager*;
 
+    }
+    villager n1=villager();
+    nowy[0]=&n1;
+    villager n2=villager();
+    nowy[1]=&n2;
+    villager n3=villager();
+    nowy[2]=&n3;
+    villager n4=villager();
+    nowy[3]=&n4;
+    villager n5=villager();
+    nowy[4]=&n5;
+    for(int i=0;i<5;i++)
+    {
+        dom->dodaj_chlopka(nowy[i]);
+
+    }
+
+
+    for(int i=0;i<100;i++){
+        dom->dodaj_wiek();
+    }
 
 
     cout << dom->getimie() << endl;
