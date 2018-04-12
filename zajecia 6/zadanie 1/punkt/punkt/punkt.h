@@ -40,4 +40,5 @@ int zwrocid()
 
 
 }
+
 #endif // PUNKT_H
