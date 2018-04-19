@@ -28,6 +28,7 @@ private:
     pt::point **tab;
     int rozmiar;
 public:
+
     polygon(int rozmiar)
     {
         for(int i=0;i<rozmiar;i++)
@@ -41,6 +42,13 @@ public:
     {
         *tab[i]=a;
     }
+    static polygon pusty()
+    {
+        polygon *nowy = new polygon(0);
+
+        return *nowy;
+}
+
     static polygon triangle(pt::point a,pt::point b,pt::point c)
     {
         polygon *nowy = new polygon(3);
@@ -70,7 +78,7 @@ public:
         return *nowy;
         }else
         {
-            return nullptr;
+            return polygon::pusty();
         }
 
 
@@ -84,9 +92,16 @@ private:
     int id;
     string nazwa;
 public:
+    static int zmienna;
     Account(string nazwa) : nazwa(nazwa)
     {
-        id = acc::zwrocid();
+        id = dajid();
+
+    }
+    static int dajid()
+    {
+       zmienna++;
+       return zmienna-1;
     }
     int getidid()
     {
@@ -105,10 +120,12 @@ public:
 
 
 
+
 int main(int argc, char *argv[])
 {
 
-    pt::point nowy;
+    pt::point nowy,a,b,c;
+    polygon now = polygon::triangle(a,b,c);
 
     return 0;
 }

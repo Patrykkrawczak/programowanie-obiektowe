@@ -1,6 +1,11 @@
 #include <iostream>
 #include <cmath>
 using namespace std;
+
+class polygon
+{
+    virtual float circ() =0;
+};
 namespace poly {
 class Reguralar_polygon
 {
@@ -38,13 +43,23 @@ public:
 class ReguralPiramid : public Reguralar_polygon
 {
 
-    void czystowirt();
+    void czystowirt() override;
     float volume()
     {
         return this->getpole()*this->getwysokosc()/3;
     }
 };
+class ReguralPrism : public Reguralar_polygon
+{
+
+    void czystowirt() override;
+    float volume()
+    {
+        return this->getpole()*this->getwysokosc();
+    }
+};
 }
+
 
 int main(int argc, char *argv[])
 {
