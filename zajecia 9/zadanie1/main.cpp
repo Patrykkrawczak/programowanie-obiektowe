@@ -115,13 +115,13 @@ public:
         }
         return false;
     }
-    bool komparator(Person a1,Person a2)
+    static bool komparator(Person &a1,Person &a2)
     {
         if(a1.getwiek() < a2.getwiek()){return true;}else if(a1.getwiek() < a2.getwiek()){return false;}else if(a1.getpierwsza() < a2.getpierwsza()){ return true;} else return false;
     }
     Person operator < (int liczba)
     {
-    sort(dzieci.begin(),dzieci.end(),&Person::komparator);
+    sort(dzieci.begin(),dzieci.end(),komparator);
     return *this;
     }
     Person operator <<= (Person &osoba)
@@ -131,7 +131,7 @@ public:
             dzieci.push_back(osoba);
         }
     }
-    Person *operator () (int liczba)
+    Person *operator [] (int liczba)
     {
         return &dzieci[liczba];
     }
