@@ -3,6 +3,8 @@
 #include <vector>
 using namespace std;
 
+
+
 class klasa
 {
 private:
@@ -54,6 +56,7 @@ public:
 
 };
 
+
 istream& operator>>(istream& is,Point & p )
 {
     return is >> p.x >> p.y;
@@ -65,6 +68,7 @@ private:
     vector <Point*> tabl;
     int wielkosc;
 public:
+    friend class PointsOperations
     Points(Point *p)
     {
         tabl.push_back(p);
@@ -92,7 +96,12 @@ ostream& operator<<(ostream& is,Points & p )
 
 }
 
+class PointsOperations
+{
 
+
+
+};
 int main(int argc, char *argv[])
 {
     klasa k = klasa(3);

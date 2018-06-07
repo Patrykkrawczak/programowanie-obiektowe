@@ -107,5 +107,9 @@ int main(int argc, char *argv[])
     Points x = Points(&a);
     x.dodaj(&a1);
     cout << x;
+
+
+
+
     return 0;
 }
