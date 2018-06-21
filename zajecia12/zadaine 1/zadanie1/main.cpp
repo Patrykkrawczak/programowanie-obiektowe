@@ -65,13 +65,13 @@ public:
     {
         delete *wzk;
     }
-    void operator -> ()
+    T &operator -> ()
     {
-        return wzk;
+        return *wzk;
     }
     void operator & ()
     {
-        return *wzk;
+        return wzk;
     }
 
 
