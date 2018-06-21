@@ -1,5 +1,7 @@
 #include <iostream>
 #include <vector>
+#include <cstdlib>
+#include <ctime>
 using namespace std;
 
 class Klasa
@@ -126,13 +128,14 @@ public:
     }
     string take()
     {
-
-        return *tab[0];
+        int liczba = rand()%tab.size();
+        return *tab[liczba];
     }
 };
 
 int main(int argc, char *argv[])
 {
+    srand(time(0));
     Klasa nowy;
     unique_ptr<Triangle> nowwy(new Triangle(1,2,3));
     unique_ptr<Klasa> ptr1(new Klasa);
