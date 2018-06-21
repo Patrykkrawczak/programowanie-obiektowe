@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <vector>
 using namespace std;
 
 class Klasa
@@ -104,22 +104,44 @@ public:
 
 };
 
-float obliczobw(shared_ptr<Triangle> hehs)
+float obliczobw(unique_ptr<Triangle> hehs)
 {
     return hehs->getx()+hehs->gety()+hehs->getz();
 }
 
+//zadanie 3
+
+//Zdefiniuj klasę WordBag posiadającą prywatny wektor unikalnych wskaźników na string.
+//Napisz w niej publiczne metody: add,
+//przyjmującą unikalny wskaźnik i dodający go do wektora oraz take zwracającą unikalny wskaźnik na losowe słowo z wektora.
+
+class WordBag
+{
+private:
+    vector <unique_ptr<string>> tab;
+public:
+    void add(unique_ptr<string> ala)
+    {
+        tab.push_back(move(ala));
+    }
+    string take()
+    {
+
+        return *tab[0];
+    }
+};
 
 int main(int argc, char *argv[])
 {
     Klasa nowy;
-    shared_ptr<Triangle> nowwy(new Triangle(1,2,3));
+    unique_ptr<Triangle> nowwy(new Triangle(1,2,3));
     unique_ptr<Klasa> ptr1(new Klasa);
     shared_ptr<Klasa> ptr2(new Klasa);
     shared_ptr<Klasa> ptr3(ptr2);
     cout << ptr1->test(12)<< ptr2->test(11) << ptr3->test(13)<<endl;
     ptr1.reset(new Klasa);
-    cout << obliczobw(nowwy)<<endl;
+    cout << obliczobw(move(nowwy))<<endl;
     ftest(ptr2);
+
     return 0;
 }
